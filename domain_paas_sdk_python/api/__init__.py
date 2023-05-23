@@ -1,0 +1,16 @@
+from __future__ import absolute_import
+
+# flake8: noqa
+
+# import apis into api package
+from domain_paas_sdk_python.api.connect_api import ConnectApi
+from domain_paas_sdk_python.api.files_api import FilesApi
+from domain_paas_sdk_python.api.menu_per_api import MenuPerApi
+from domain_paas_sdk_python.api.micro_services_manager_api import MicroServicesManagerApi
+from domain_paas_sdk_python.api.organization_mananger_api import OrganizationManangerApi
+from domain_paas_sdk_python.api.personal_center_api import PersonalCenterApi
+from domain_paas_sdk_python.api.role_manager_api import RoleManagerApi
+from domain_paas_sdk_python.api.rpc_oper_api import RpcOperApi
+from domain_paas_sdk_python.api.tenant_manager_api import TenantManagerApi
+from domain_paas_sdk_python.api.user_status_api import UserStatusApi
+from domain_paas_sdk_python.api.users_mnanger_api import UsersMnangerApi

@@ -1,0 +1,32 @@
+name: publis pypi
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: install python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+
+      - name: Installs dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install setuptools wheel twine
+
+      - name: Build and Upload to PyPI
+        run: |
+          python3 setup.py sdist bdist_wheel
+          python3 -m twine upload dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TWINE_TOKEN }}
+      
+
+    
