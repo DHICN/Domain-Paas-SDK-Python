@@ -27,9 +27,11 @@ setup(
     url="",
     keywords=["sdk", "python", "domain-paas"],
     install_requires=REQUIRES,
-    packages=find_packages('src',exclude=["test", "tests"]),
+    packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
     This template should help get you started developing with python
-    """
+    """,
+    package_dir={'','src'}
+
 )
