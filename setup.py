@@ -32,5 +32,6 @@ setup(
     long_description="""\
     This template should help get you started developing with python
     """,
-    package_dir={'':'src'}
+    package_dir={'':'src'},
+    license='MIT'
 )
