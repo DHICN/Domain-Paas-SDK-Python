@@ -2,7 +2,7 @@
 <div align="center">
 
  ![Python version](https://img.shields.io/pypi/pyversions/mikeio.svg)
-[![PyPI version](https://badge.fury.io/py/mikeio.svg)](https://badge.fury.io/py/mikeio)
+[![PyPI version](https://badge.fury.io/py/domain_paas_sdk_python.svg)](https://badge.fury.io/py/domain_paas_sdk_python)
   
 这是一个[DHI 中国 业务中台](https://online-products.dhichina.cn/) 的 Client SDK 开发辅助包，帮您快速通过我们的业务中台构建应用。
 
