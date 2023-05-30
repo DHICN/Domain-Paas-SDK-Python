@@ -21,16 +21,15 @@
 - [x] model-configuration-service 模型计算服务
 - [ ] text-search-service 全文搜索服务
 - [ ] device-management-service 资产设备服务
-- [ ] accident-management-service 事故管理服务
+- [x] accident-management-service 事故管理服务
 - [x] digital-twin-service 模型映射服务
 - [x] iot-service IoT 服务
 - [x] wwtp-domain-main-bus-service 污水业务中台基础服务
 - [x] wwtp-domain-infrastructure-service 污水业务中台邻域服务
 - [x] wd-domain-service 供水业务中台领域服务
 
-## Requirements
-* Windows or Linux operating system
-* Python x64 3.8 - 3.11
+## 适用平台
+* Mac、Windows和Linux
 
 ## Installation
 
@@ -38,9 +37,27 @@ From PyPI:
 
 `pip install domain-paas-sdk-python`
 
-## 🔨 使用
+## 使用
 
 需要先联系我们获取的 [DHI 中国 业务中台](https://online-products.dhichina.cn/) 使用许可和认证信息。
 
 ### 基础使用
+test.py
+```
+# coding: utf-8
 
+// 引入需要使用的包
+from wwtp_paas_main_bus_service import *
+from wwtp_paas_main_bus_service import ApiClient
+from wwtp_paas_main_bus_service import CalculateDosageApi
+// 构建参数
+configuration=Configuration.get_default_copy()
+configuration.verify_ssl=False
+configuration.host="http://172.23.21.60:61120"
+// 初始化
+client = ApiClient(configuration)
+calculate = CalculateDosageApi(client)
+// 调用接口
+response = calculate.api_calculate_dosage_excute_plc_get()
+
+```
