@@ -150,7 +150,7 @@ class Group(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `0`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and not re.search(r'^[^\\/:*?<>"|]+$', name)):  # noqa: E501
-            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[^\\/:*?<>"|]+$/`")  # noqa: E501
+            raise ValueError(r'Invalid value for `name`, must be a follow pattern or equal to `/^[^\\/:*?<>"|]+$/`')  # noqa: E501
 
         self._name = name
 
