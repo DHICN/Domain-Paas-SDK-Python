@@ -10,23 +10,23 @@
 
 ## 🔆 功能清单
 
-- [x] identity-service 用户认证管理服务
-- [x] scenario-manager-service 方案管理服务
-- [x] message-service 消息服务
-- [x] document-service 文档服务
-- [x] scenario-compute-service 方案计算服务
-- [ ] model-driver-service 模型计算服务
-- [x] result-analysis-service 结果分析服务
-- [x] model-information-service 模型分析服务
-- [x] model-configuration-service 模型计算服务
-- [ ] text-search-service 全文搜索服务
-- [ ] device-management-service 资产设备服务
-- [x] accident-management-service 事故管理服务
-- [x] digital-twin-service 模型映射服务
-- [x] iot-service IoT 服务
-- [x] wwtp-domain-main-bus-service 污水业务中台基础服务
-- [x] wwtp-domain-infrastructure-service 污水业务中台邻域服务
-- [x] wd-domain-service 供水业务中台领域服务
+- [x] dhicn_identity_service 用户认证管理服务
+- [x] dhicn_scenario_manager_service 方案管理服务
+- [x] dhicn_message_service 消息服务
+- [x] dhicn_document_service 文档服务
+- [x] dhicn_scenario_compute_service 方案计算服务
+- [ ] dhicn_model_driver_service 模型计算服务
+- [x] dhicn_result_analysis_service 结果分析服务
+- [x] dhicn_model_information_service 模型分析服务
+- [x] dhicn_model_configuration_service 模型计算服务
+- [ ] dhicn_text_search_service 全文搜索服务
+- [ ] dhicn_device_management_service 资产设备服务
+- [x] dhicn_accident_management_service 事故管理服务
+- [x] dhicn_digital_twin_service 模型映射服务
+- [x] dhicn_iot_service IoT 服务
+- [x] dhicn_wwtp_data_bus_service 污水业务中台领域服务
+- [x] dhicn_wwtp_infrastructure_service 污水业务中台基础服务
+- [x] dhicn_wd_domain_service 供水业务中台领域服务
 
 ## 适用平台
 * Mac、Windows和Linux
@@ -35,7 +35,7 @@
 
 From PyPI: 
 
-`pip install domain-paas-sdk-python`
+`pip install dhicn_domain_paas_sdk_python`
 
 ## 使用
 

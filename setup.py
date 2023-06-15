@@ -7,7 +7,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "dhicn-domain-paas-sdk-python"
+NAME = "dhicn_domain_paas_sdk_python"
 VERSION = "1.0.8"
 # To install the library, run the following
 #
