@@ -15,7 +15,7 @@ import re  # noqa: F401
 
 import six
 
-from dhicn_iot_service.configuration import Configuration
+from openapi_client.configuration import Configuration
 
 
 class SaveHistorySearchRecordInput(object):
@@ -37,7 +37,8 @@ class SaveHistorySearchRecordInput(object):
         'is_default': 'bool',
         'indicator': 'str',
         'is_search_simul': 'bool',
-        'is_search_online': 'bool'
+        'is_search_online': 'bool',
+        'scene': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class SaveHistorySearchRecordInput(object):
         'is_default': 'isDefault',
         'indicator': 'indicator',
         'is_search_simul': 'isSearchSimul',
-        'is_search_online': 'isSearchOnline'
+        'is_search_online': 'isSearchOnline',
+        'scene': 'scene'
     }
 
-    def __init__(self, name=None, is_default=None, indicator=None, is_search_simul=None, is_search_online=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, is_default=None, indicator=None, is_search_simul=None, is_search_online=None, scene=None, local_vars_configuration=None):  # noqa: E501
         """SaveHistorySearchRecordInput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class SaveHistorySearchRecordInput(object):
         self._indicator = None
         self._is_search_simul = None
         self._is_search_online = None
+        self._scene = None
         self.discriminator = None
 
         self.name = name
@@ -69,6 +72,7 @@ class SaveHistorySearchRecordInput(object):
             self.is_search_simul = is_search_simul
         if is_search_online is not None:
             self.is_search_online = is_search_online
+        self.scene = scene
 
     @property
     def name(self):
@@ -184,6 +188,29 @@ class SaveHistorySearchRecordInput(object):
         """
 
         self._is_search_online = is_search_online
+
+    @property
+    def scene(self):
+        """Gets the scene of this SaveHistorySearchRecordInput.  # noqa: E501
+
+        搜索条件应用场景  # noqa: E501
+
+        :return: The scene of this SaveHistorySearchRecordInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scene
+
+    @scene.setter
+    def scene(self, scene):
+        """Sets the scene of this SaveHistorySearchRecordInput.
+
+        搜索条件应用场景  # noqa: E501
+
+        :param scene: The scene of this SaveHistorySearchRecordInput.  # noqa: E501
+        :type: str
+        """
+
+        self._scene = scene
 
     def to_dict(self):
         """Returns the model properties as a dict"""

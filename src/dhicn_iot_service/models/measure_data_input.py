@@ -15,7 +15,7 @@ import re  # noqa: F401
 
 import six
 
-from dhicn_iot_service.configuration import Configuration
+from openapi_client.configuration import Configuration
 
 
 class MeasureDataInput(object):
@@ -33,28 +33,55 @@ class MeasureDataInput(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'device_code': 'str',
         'indicator': 'str',
         'value': 'float'
     }
 
     attribute_map = {
+        'device_code': 'deviceCode',
         'indicator': 'indicator',
         'value': 'value'
     }
 
-    def __init__(self, indicator=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, device_code=None, indicator=None, value=None, local_vars_configuration=None):  # noqa: E501
         """MeasureDataInput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._device_code = None
         self._indicator = None
         self._value = None
         self.discriminator = None
 
+        self.device_code = device_code
         self.indicator = indicator
         if value is not None:
             self.value = value
+
+    @property
+    def device_code(self):
+        """Gets the device_code of this MeasureDataInput.  # noqa: E501
+
+        指标  # noqa: E501
+
+        :return: The device_code of this MeasureDataInput.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_code
+
+    @device_code.setter
+    def device_code(self, device_code):
+        """Sets the device_code of this MeasureDataInput.
+
+        指标  # noqa: E501
+
+        :param device_code: The device_code of this MeasureDataInput.  # noqa: E501
+        :type: str
+        """
+
+        self._device_code = device_code
 
     @property
     def indicator(self):

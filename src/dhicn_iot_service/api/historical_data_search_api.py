@@ -17,8 +17,8 @@ import re  # noqa: F401
 # python 2 and python 3 compatibility library
 import six
 
-from dhicn_iot_service.api_client import ApiClient
-from dhicn_iot_service.exceptions import (  # noqa: F401
+from openapi_client.api_client import ApiClient
+from openapi_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -157,6 +157,7 @@ class HistoricalDataSearchApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str scene:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -180,6 +181,7 @@ class HistoricalDataSearchApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str scene:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -197,6 +199,7 @@ class HistoricalDataSearchApi(object):
         local_var_params = locals()
 
         all_params = [
+            'scene'
         ]
         all_params.extend(
             [
@@ -221,6 +224,8 @@ class HistoricalDataSearchApi(object):
         path_params = {}
 
         query_params = []
+        if 'scene' in local_var_params and local_var_params['scene'] is not None:  # noqa: E501
+            query_params.append(('scene', local_var_params['scene']))  # noqa: E501
 
         header_params = {}
 
@@ -484,6 +489,7 @@ class HistoricalDataSearchApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str scene:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -507,6 +513,7 @@ class HistoricalDataSearchApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str scene:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -524,6 +531,7 @@ class HistoricalDataSearchApi(object):
         local_var_params = locals()
 
         all_params = [
+            'scene'
         ]
         all_params.extend(
             [
@@ -548,6 +556,8 @@ class HistoricalDataSearchApi(object):
         path_params = {}
 
         query_params = []
+        if 'scene' in local_var_params and local_var_params['scene'] is not None:  # noqa: E501
+            query_params.append(('scene', local_var_params['scene']))  # noqa: E501
 
         header_params = {}
 

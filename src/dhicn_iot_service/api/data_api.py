@@ -17,8 +17,8 @@ import re  # noqa: F401
 # python 2 and python 3 compatibility library
 import six
 
-from dhicn_iot_service.api_client import ApiClient
-from dhicn_iot_service.exceptions import (  # noqa: F401
+from openapi_client.api_client import ApiClient
+from openapi_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -599,7 +599,7 @@ class DataApi(object):
             collection_formats=collection_formats)
 
     def api_data_mock_online_source_datas_get(self, **kwargs):  # noqa: E501
-        """/api/Data/MockOnlineSourceDatas  # noqa: E501
+        """仿真在线数据  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -627,7 +627,7 @@ class DataApi(object):
         return self.api_data_mock_online_source_datas_get_with_http_info(**kwargs)  # noqa: E501
 
     def api_data_mock_online_source_datas_get_with_http_info(self, **kwargs):  # noqa: E501
-        """/api/Data/MockOnlineSourceDatas  # noqa: E501
+        """仿真在线数据  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

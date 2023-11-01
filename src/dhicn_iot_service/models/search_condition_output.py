@@ -15,7 +15,7 @@ import re  # noqa: F401
 
 import six
 
-from dhicn_iot_service.configuration import Configuration
+from openapi_client.configuration import Configuration
 
 
 class SearchConditionOutput(object):
@@ -34,15 +34,17 @@ class SearchConditionOutput(object):
     """
     openapi_types = {
         'device_name': 'str',
-        'indicators': 'list[str]'
+        'indicators': 'list[str]',
+        'scene': 'str'
     }
 
     attribute_map = {
         'device_name': 'deviceName',
-        'indicators': 'indicators'
+        'indicators': 'indicators',
+        'scene': 'scene'
     }
 
-    def __init__(self, device_name=None, indicators=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, device_name=None, indicators=None, scene=None, local_vars_configuration=None):  # noqa: E501
         """SearchConditionOutput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,12 @@ class SearchConditionOutput(object):
 
         self._device_name = None
         self._indicators = None
+        self._scene = None
         self.discriminator = None
 
         self.device_name = device_name
         self.indicators = indicators
+        self.scene = scene
 
     @property
     def device_name(self):
@@ -96,6 +100,27 @@ class SearchConditionOutput(object):
         """
 
         self._indicators = indicators
+
+    @property
+    def scene(self):
+        """Gets the scene of this SearchConditionOutput.  # noqa: E501
+
+
+        :return: The scene of this SearchConditionOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._scene
+
+    @scene.setter
+    def scene(self, scene):
+        """Sets the scene of this SearchConditionOutput.
+
+
+        :param scene: The scene of this SearchConditionOutput.  # noqa: E501
+        :type: str
+        """
+
+        self._scene = scene
 
     def to_dict(self):
         """Returns the model properties as a dict"""

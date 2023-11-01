@@ -15,7 +15,7 @@ import re  # noqa: F401
 
 import six
 
-from dhicn_iot_service.configuration import Configuration
+from openapi_client.configuration import Configuration
 
 
 class AssetInfoOutputPage(object):
