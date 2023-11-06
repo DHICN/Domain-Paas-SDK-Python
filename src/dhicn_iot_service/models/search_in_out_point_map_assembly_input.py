@@ -15,7 +15,7 @@ import re  # noqa: F401
 
 import six
 
-from openapi_client.configuration import Configuration
+from dhicn_iot_service.configuration import Configuration
 
 
 class SearchInOutPointMapAssemblyInput(object):

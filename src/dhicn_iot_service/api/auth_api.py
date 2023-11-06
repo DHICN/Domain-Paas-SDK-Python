@@ -17,8 +17,8 @@ import re  # noqa: F401
 # python 2 and python 3 compatibility library
 import six
 
-from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
+from dhicn_iot_service.api_client import ApiClient
+from dhicn_iot_service.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
