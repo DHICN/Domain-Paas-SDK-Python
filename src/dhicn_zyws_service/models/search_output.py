@@ -35,7 +35,7 @@ class SearchOutput(object):
     openapi_types = {
         'indicators': 'list[SearchIndicator]',
         'measure_ts_data': 'list[TimeseriesBatchForV3Output]',
-        'model_ts_data': 'list[TimeseriesBatchForV3Output]'
+        'model_ts_data': 'list[ModelResultOutput]'
     }
 
     attribute_map = {
@@ -112,7 +112,7 @@ class SearchOutput(object):
         模拟历史数据  # noqa: E501
 
         :return: The model_ts_data of this SearchOutput.  # noqa: E501
-        :rtype: list[TimeseriesBatchForV3Output]
+        :rtype: list[ModelResultOutput]
         """
         return self._model_ts_data
 
@@ -123,7 +123,7 @@ class SearchOutput(object):
         模拟历史数据  # noqa: E501
 
         :param model_ts_data: The model_ts_data of this SearchOutput.  # noqa: E501
-        :type: list[TimeseriesBatchForV3Output]
+        :type: list[ModelResultOutput]
         """
 
         self._model_ts_data = model_ts_data

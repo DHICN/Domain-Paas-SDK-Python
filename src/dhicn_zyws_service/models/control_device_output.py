@@ -39,7 +39,8 @@ class ControlDeviceOutput(object):
         'recommend_value': 'float',
         'recommend': 'str',
         'is_intelligent_control': 'bool',
-        'sort': 'int'
+        'sort': 'int',
+        'current_value': 'float'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ControlDeviceOutput(object):
         'recommend_value': 'recommendValue',
         'recommend': 'recommend',
         'is_intelligent_control': 'isIntelligentControl',
-        'sort': 'sort'
+        'sort': 'sort',
+        'current_value': 'currentValue'
     }
 
-    def __init__(self, device_code=None, indicator=None, measure_value=None, recommend_value=None, recommend=None, is_intelligent_control=None, sort=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, device_code=None, indicator=None, measure_value=None, recommend_value=None, recommend=None, is_intelligent_control=None, sort=None, current_value=None, local_vars_configuration=None):  # noqa: E501
         """ControlDeviceOutput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class ControlDeviceOutput(object):
         self._recommend = None
         self._is_intelligent_control = None
         self._sort = None
+        self._current_value = None
         self.discriminator = None
 
         self.device_code = device_code
@@ -78,6 +81,8 @@ class ControlDeviceOutput(object):
             self.is_intelligent_control = is_intelligent_control
         if sort is not None:
             self.sort = sort
+        if current_value is not None:
+            self.current_value = current_value
 
     @property
     def device_code(self):
@@ -225,6 +230,27 @@ class ControlDeviceOutput(object):
         """
 
         self._sort = sort
+
+    @property
+    def current_value(self):
+        """Gets the current_value of this ControlDeviceOutput.  # noqa: E501
+
+
+        :return: The current_value of this ControlDeviceOutput.  # noqa: E501
+        :rtype: float
+        """
+        return self._current_value
+
+    @current_value.setter
+    def current_value(self, current_value):
+        """Sets the current_value of this ControlDeviceOutput.
+
+
+        :param current_value: The current_value of this ControlDeviceOutput.  # noqa: E501
+        :type: float
+        """
+
+        self._current_value = current_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

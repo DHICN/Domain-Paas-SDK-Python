@@ -42,7 +42,8 @@ class ControlDeviceDetails(object):
         'sort': 'int',
         'value_updatetime': 'datetime',
         'indicator': 'str',
-        'status': 'str'
+        'status': 'str',
+        'current_value': 'float'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class ControlDeviceDetails(object):
         'sort': 'sort',
         'value_updatetime': 'valueUpdatetime',
         'indicator': 'indicator',
-        'status': 'status'
+        'status': 'status',
+        'current_value': 'currentValue'
     }
 
-    def __init__(self, show_name=None, device_code=None, measure_value=None, recommend_value=None, recommend_content=None, is_intelligence=None, sort=None, value_updatetime=None, indicator=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, show_name=None, device_code=None, measure_value=None, recommend_value=None, recommend_content=None, is_intelligence=None, sort=None, value_updatetime=None, indicator=None, status=None, current_value=None, local_vars_configuration=None):  # noqa: E501
         """ControlDeviceDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class ControlDeviceDetails(object):
         self._value_updatetime = None
         self._indicator = None
         self._status = None
+        self._current_value = None
         self.discriminator = None
 
         self.show_name = show_name
@@ -91,6 +94,8 @@ class ControlDeviceDetails(object):
             self.value_updatetime = value_updatetime
         self.indicator = indicator
         self.status = status
+        if current_value is not None:
+            self.current_value = current_value
 
     @property
     def show_name(self):
@@ -303,6 +308,27 @@ class ControlDeviceDetails(object):
         """
 
         self._status = status
+
+    @property
+    def current_value(self):
+        """Gets the current_value of this ControlDeviceDetails.  # noqa: E501
+
+
+        :return: The current_value of this ControlDeviceDetails.  # noqa: E501
+        :rtype: float
+        """
+        return self._current_value
+
+    @current_value.setter
+    def current_value(self, current_value):
+        """Sets the current_value of this ControlDeviceDetails.
+
+
+        :param current_value: The current_value of this ControlDeviceDetails.  # noqa: E501
+        :type: float
+        """
+
+        self._current_value = current_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -47,8 +47,8 @@ class AutoRunResultApi(object):
         :param async_req bool: execute request asynchronously
         :param str scenario_id: 方案
         :param str library_id:
-        :param list[AssetInfoOutput] assets:
-        :param list[DeviceInfosOutput] devices:
+        :param list[str] assets:
+        :param list[str] devices:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,8 +74,8 @@ class AutoRunResultApi(object):
         :param async_req bool: execute request asynchronously
         :param str scenario_id: 方案
         :param str library_id:
-        :param list[AssetInfoOutput] assets:
-        :param list[DeviceInfosOutput] devices:
+        :param list[str] assets:
+        :param list[str] devices:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -140,7 +140,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -172,8 +172,8 @@ class AutoRunResultApi(object):
         :param async_req bool: execute request asynchronously
         :param str scenario_id: 方案
         :param str library_id:
-        :param list[AssetInfoOutput] assets:
-        :param list[DeviceInfosOutput] devices:
+        :param list[str] assets:
+        :param list[str] devices:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -199,8 +199,8 @@ class AutoRunResultApi(object):
         :param async_req bool: execute request asynchronously
         :param str scenario_id: 方案
         :param str library_id:
-        :param list[AssetInfoOutput] assets:
-        :param list[DeviceInfosOutput] devices:
+        :param list[str] assets:
+        :param list[str] devices:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -265,7 +265,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -378,7 +378,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -491,7 +491,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -825,7 +825,7 @@ class AutoRunResultApi(object):
             body_params = local_var_params['save_schedule_suggestion_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -937,7 +937,7 @@ class AutoRunResultApi(object):
             body_params = local_var_params['save_schedule_suggestion_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1044,7 +1044,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1147,7 +1147,7 @@ class AutoRunResultApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
