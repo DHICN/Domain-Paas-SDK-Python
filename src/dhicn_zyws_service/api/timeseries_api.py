@@ -123,7 +123,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['get_measure_and_simul_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -235,7 +235,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['get_measure_and_simul_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -581,7 +581,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['multiple_tenant_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -693,7 +693,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['multiple_tenant_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -727,7 +727,7 @@ class TimeseriesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_refresh_indicators:
+        :param bool is_refresh_indicators:
         :param list[TimeseriesBatchForV3Input] timeseries_batch_for_v3_input:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -752,7 +752,7 @@ class TimeseriesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_refresh_indicators:
+        :param bool is_refresh_indicators:
         :param list[TimeseriesBatchForV3Input] timeseries_batch_for_v3_input:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -810,7 +810,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['timeseries_batch_for_v3_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -844,7 +844,7 @@ class TimeseriesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_refresh_indicators:
+        :param bool is_refresh_indicators:
         :param list[TimeseriesBatchForV3Input] timeseries_batch_for_v3_input:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -869,7 +869,7 @@ class TimeseriesApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_refresh_indicators:
+        :param bool is_refresh_indicators:
         :param list[TimeseriesBatchForV3Input] timeseries_batch_for_v3_input:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -927,7 +927,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['timeseries_batch_for_v3_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1039,7 +1039,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['mutilple_tenant_batch_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1151,7 +1151,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['mutilple_tenant_batch_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1263,7 +1263,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['set_mutilple_tenant_batch_data_to_redis_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1375,7 +1375,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['set_mutilple_tenant_batch_data_to_redis_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1482,7 +1482,7 @@ class TimeseriesApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1585,7 +1585,7 @@ class TimeseriesApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1693,7 +1693,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['multiple_tenant_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1805,7 +1805,7 @@ class TimeseriesApi(object):
             body_params = local_var_params['multiple_tenant_data_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

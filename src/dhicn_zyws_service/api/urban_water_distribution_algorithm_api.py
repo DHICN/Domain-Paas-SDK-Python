@@ -46,10 +46,10 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
         :param float factory1_2plus3_prop:
-        :param list[str] principles:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,10 +74,10 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
         :param float factory1_2plus3_prop:
-        :param list[str] principles:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -145,7 +145,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -176,10 +176,10 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
         :param float factory1_2plus3_prop:
-        :param list[str] principles:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -204,10 +204,10 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
         :param float factory1_2plus3_prop:
-        :param list[str] principles:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -275,7 +275,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -306,9 +306,9 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
-        :param list[str] principles:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -333,9 +333,9 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
-        :param list[str] principles:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -400,7 +400,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -431,9 +431,9 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
-        :param list[str] principles:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -458,9 +458,9 @@ class UrbanWaterDistributionAlgorithmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str scenario_id:
-        :param str dt:
-        :param list[str] measure_data:
-        :param list[str] principles:
+        :param datetime dt:
+        :param list[TimeseriesBatchForV3Output] measure_data:
+        :param list[WaterDeliveryPrincipleScenario] principles:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -525,7 +525,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -638,7 +638,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -751,7 +751,7 @@ class UrbanWaterDistributionAlgorithmApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501

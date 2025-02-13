@@ -123,7 +123,7 @@ class ControlApi(object):
             body_params = local_var_params['add_control_device_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -235,7 +235,7 @@ class ControlApi(object):
             body_params = local_var_params['add_control_device_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -342,7 +342,7 @@ class ControlApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -445,7 +445,7 @@ class ControlApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -553,7 +553,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device_details']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -665,7 +665,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device_details']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -699,7 +699,7 @@ class ControlApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_force_refresh:
+        :param bool is_force_refresh:
         :param ControlDevicesInput control_devices_input:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -724,7 +724,7 @@ class ControlApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_force_refresh:
+        :param bool is_force_refresh:
         :param ControlDevicesInput control_devices_input:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -782,7 +782,7 @@ class ControlApi(object):
             body_params = local_var_params['control_devices_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -816,7 +816,7 @@ class ControlApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_force_refresh:
+        :param bool is_force_refresh:
         :param ControlDevicesInput control_devices_input:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -841,7 +841,7 @@ class ControlApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str is_force_refresh:
+        :param bool is_force_refresh:
         :param ControlDevicesInput control_devices_input:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -899,7 +899,7 @@ class ControlApi(object):
             body_params = local_var_params['control_devices_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1011,7 +1011,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1123,7 +1123,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1235,7 +1235,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device_details']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1347,7 +1347,7 @@ class ControlApi(object):
             body_params = local_var_params['control_device_details']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

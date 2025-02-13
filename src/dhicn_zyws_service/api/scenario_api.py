@@ -128,7 +128,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -241,7 +241,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -349,7 +349,7 @@ class ScenarioApi(object):
             body_params = local_var_params['create_plan_scenario_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -461,7 +461,7 @@ class ScenarioApi(object):
             body_params = local_var_params['create_plan_scenario_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -573,7 +573,7 @@ class ScenarioApi(object):
             body_params = local_var_params['ids_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -685,7 +685,7 @@ class ScenarioApi(object):
             body_params = local_var_params['ids_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -802,7 +802,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -915,7 +915,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1048,7 +1048,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1181,7 +1181,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1314,7 +1314,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1447,7 +1447,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1570,7 +1570,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1693,7 +1693,7 @@ class ScenarioApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
