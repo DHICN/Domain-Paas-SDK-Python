@@ -8,7 +8,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "dhicn_domain_paas_sdk_python"
-VERSION = "1.0.16"
+VERSION = "1.0.17"
 # To install the library, run the following
 #
 # python setup.py install
@@ -28,9 +28,9 @@ setup(
     url="https://github.com/DHICN/Domain-Paas-SDK-Python",
     keywords=["sdk", "python", "domain-paas"],
     install_requires=REQUIRES,
-    packages=find_packages(where='src',exclude=["test", "tests"]),
+    packages=find_packages(where='src', exclude=["test", "tests"]),
     include_package_data=True,
     long_description="这是一个[DHI 中国 业务中台](https://online-products.dhichina.cn/) 的 Client SDK 开发辅助包，帮您快速通过我们的业务中台构建应用。",
-    package_dir={'':'src'},
+    package_dir={'': 'src'},
     license='MIT'
 )

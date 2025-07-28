@@ -36,16 +36,17 @@ class TelemetryApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api_v1_iot_latest_timeseries_post(self, **kwargs):  # noqa: E501
-        """根据指标获取最新实测数据，要求指标编码再系统中是唯一的  # noqa: E501
+    def api_v1_iot_latest_timeseries_by_time_post(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取离指定时间点最近的实测数据  # noqa: E501
 
+        关键词：设备、设备指标、时间点、实测数据、获取、查询  使用场景：  该接口一般用于基于某个时间点创建的预案中，如果需要查询该预案时刻下的最近实测数据，则使用该接口，若要查询实时数据，请用/api/v3/iot/latest-timeseries接口  输入：设备编码、指标名称、时间点  输出：设备编码、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_latest_timeseries_post(async_req=True)
+        >>> thread = api.api_v1_iot_latest_timeseries_by_time_post(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param LatestTimeSeriesInput latest_time_series_input:
+        :param LatestTimeSeriesByTimeInput latest_time_series_by_time_input:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -53,23 +54,24 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[LatestTimeSeriesOutput]
+        :return: list[LatestTimeSeriesOutputV3]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.api_v1_iot_latest_timeseries_post_with_http_info(**kwargs)  # noqa: E501
+        return self.api_v1_iot_latest_timeseries_by_time_post_with_http_info(**kwargs)  # noqa: E501
 
-    def api_v1_iot_latest_timeseries_post_with_http_info(self, **kwargs):  # noqa: E501
-        """根据指标获取最新实测数据，要求指标编码再系统中是唯一的  # noqa: E501
+    def api_v1_iot_latest_timeseries_by_time_post_with_http_info(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取离指定时间点最近的实测数据  # noqa: E501
 
+        关键词：设备、设备指标、时间点、实测数据、获取、查询  使用场景：  该接口一般用于基于某个时间点创建的预案中，如果需要查询该预案时刻下的最近实测数据，则使用该接口，若要查询实时数据，请用/api/v3/iot/latest-timeseries接口  输入：设备编码、指标名称、时间点  输出：设备编码、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_latest_timeseries_post_with_http_info(async_req=True)
+        >>> thread = api.api_v1_iot_latest_timeseries_by_time_post_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param LatestTimeSeriesInput latest_time_series_input:
+        :param LatestTimeSeriesByTimeInput latest_time_series_by_time_input:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -79,7 +81,7 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[LatestTimeSeriesOutput], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[LatestTimeSeriesOutputV3], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -87,7 +89,7 @@ class TelemetryApi(object):
         local_var_params = locals()
 
         all_params = [
-            'latest_time_series_input'
+            'latest_time_series_by_time_input'
         ]
         all_params.extend(
             [
@@ -102,7 +104,7 @@ class TelemetryApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api_v1_iot_latest_timeseries_post" % key
+                    " to method api_v1_iot_latest_timeseries_by_time_post" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -119,28 +121,28 @@ class TelemetryApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'latest_time_series_input' in local_var_params:
-            body_params = local_var_params['latest_time_series_input']
+        if 'latest_time_series_by_time_input' in local_var_params:
+            body_params = local_var_params['latest_time_series_by_time_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/iot/latest-timeseries', 'POST',
+            '/api/v1/iot/latest-timeseries-by-time', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[LatestTimeSeriesOutput]',  # noqa: E501
+            response_type='list[LatestTimeSeriesOutputV3]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -149,22 +151,22 @@ class TelemetryApi(object):
             collection_formats=collection_formats)
 
     def api_v1_iot_query_online_processed_timeseries_get(self, device_id, keys, start_ts, end_ts, **kwargs):  # noqa: E501
-        """查询设备指标的时间序列数据 Query time-series data of device indicators  # noqa: E501
+        """查询设备指标在指定时间段内的时间序列数据,按时间倒序排序  # noqa: E501
 
-        查询设备多个指标在某个时间段内的时间序列数据 Query time-series data of multiple indicators of a device by time.  # noqa: E501
+        关键词：设备、设备指标、设备指标时间序列数据、查询  使用场景：查询设备多个指标在某个时间段内的时间序列数据,和接口/api/v1/iot/timeseries的区别在于此接口不指定时间排序方式，只能倒序查询数据  输入：设备、指标、时间区间  输出：指标与时间序列数据的键值对  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v1_iot_query_online_processed_timeseries_get(device_id, keys, start_ts, end_ts, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str device_id: 设备ID device id (required)
-        :param list[str] keys: 指标列表 indicators (required)
-        :param str start_ts: 查询开始时间 start time (required)
-        :param str end_ts: 查询结束时间 end time (required)
+        :param str device_id: 设备ID，如：065cd960-67d4-11ee-a501-41ab9ac02e38 (required)
+        :param list[str] keys: 指标列表，如：ceshi_1_shuichang_flow、ceshi_1_shuichang_waterlevel (required)
+        :param datetime start_ts: 查询开始时间 (required)
+        :param datetime end_ts: 查询结束时间 (required)
         :param str order_by: 排序方式，ASC (升序)，DESC (降序) sort order, ASC (ASCENDING) or DESC (DESCENDING);默认是降序DESC
-        :param int interval:
-        :param str agg:
+        :param int interval: 时间间隔，默认是1分钟
+        :param str agg: 用于指定聚合函数，如AVG（平均值）、SUM（总和）、MIN（最小值）、MAX（最大值）等
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -180,22 +182,22 @@ class TelemetryApi(object):
         return self.api_v1_iot_query_online_processed_timeseries_get_with_http_info(device_id, keys, start_ts, end_ts, **kwargs)  # noqa: E501
 
     def api_v1_iot_query_online_processed_timeseries_get_with_http_info(self, device_id, keys, start_ts, end_ts, **kwargs):  # noqa: E501
-        """查询设备指标的时间序列数据 Query time-series data of device indicators  # noqa: E501
+        """查询设备指标在指定时间段内的时间序列数据,按时间倒序排序  # noqa: E501
 
-        查询设备多个指标在某个时间段内的时间序列数据 Query time-series data of multiple indicators of a device by time.  # noqa: E501
+        关键词：设备、设备指标、设备指标时间序列数据、查询  使用场景：查询设备多个指标在某个时间段内的时间序列数据,和接口/api/v1/iot/timeseries的区别在于此接口不指定时间排序方式，只能倒序查询数据  输入：设备、指标、时间区间  输出：指标与时间序列数据的键值对  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v1_iot_query_online_processed_timeseries_get_with_http_info(device_id, keys, start_ts, end_ts, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str device_id: 设备ID device id (required)
-        :param list[str] keys: 指标列表 indicators (required)
-        :param str start_ts: 查询开始时间 start time (required)
-        :param str end_ts: 查询结束时间 end time (required)
+        :param str device_id: 设备ID，如：065cd960-67d4-11ee-a501-41ab9ac02e38 (required)
+        :param list[str] keys: 指标列表，如：ceshi_1_shuichang_flow、ceshi_1_shuichang_waterlevel (required)
+        :param datetime start_ts: 查询开始时间 (required)
+        :param datetime end_ts: 查询结束时间 (required)
         :param str order_by: 排序方式，ASC (升序)，DESC (降序) sort order, ASC (ASCENDING) or DESC (DESCENDING);默认是降序DESC
-        :param int interval:
-        :param str agg:
+        :param int interval: 时间间隔，默认是1分钟
+        :param str agg: 用于指定聚合函数，如AVG（平均值）、SUM（总和）、MIN（最小值）、MAX（最大值）等
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -284,10 +286,10 @@ class TelemetryApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v1/iot/query-online-processed-timeseries', 'GET',
@@ -305,365 +307,23 @@ class TelemetryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def api_v1_iot_save_telemetry_data_batch_post(self, **kwargs):  # noqa: E501
-        """批量保存或更新时间序列数据 Batch save or update time-series data  # noqa: E501
-
-        批量保存或更新设备指标的时间序列数据，时间序列数据以json格式传递 Batch save or update device indicator time-series data, data is transferred in the format of json.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_save_telemetry_data_batch_post(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param list[SaveTelemetryDataInput] save_telemetry_data_input:
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.api_v1_iot_save_telemetry_data_batch_post_with_http_info(**kwargs)  # noqa: E501
-
-    def api_v1_iot_save_telemetry_data_batch_post_with_http_info(self, **kwargs):  # noqa: E501
-        """批量保存或更新时间序列数据 Batch save or update time-series data  # noqa: E501
-
-        批量保存或更新设备指标的时间序列数据，时间序列数据以json格式传递 Batch save or update device indicator time-series data, data is transferred in the format of json.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_save_telemetry_data_batch_post_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param list[SaveTelemetryDataInput] save_telemetry_data_input:
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'save_telemetry_data_input'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_v1_iot_save_telemetry_data_batch_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'save_telemetry_data_input' in local_var_params:
-            body_params = local_var_params['save_telemetry_data_input']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/v1/iot/save-telemetry-data-batch', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def api_v1_iot_save_telemetry_data_post(self, **kwargs):  # noqa: E501
-        """保存或更新时间序列数据 Save or update time-series data  # noqa: E501
-
-        保存或更新设备指标的时间序列数据，时间序列数据以json格式传递 Save or update device indicator time-series data, data is transferred in the format of json.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_save_telemetry_data_post(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param SaveTelemetryDataInput save_telemetry_data_input:
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.api_v1_iot_save_telemetry_data_post_with_http_info(**kwargs)  # noqa: E501
-
-    def api_v1_iot_save_telemetry_data_post_with_http_info(self, **kwargs):  # noqa: E501
-        """保存或更新时间序列数据 Save or update time-series data  # noqa: E501
-
-        保存或更新设备指标的时间序列数据，时间序列数据以json格式传递 Save or update device indicator time-series data, data is transferred in the format of json.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_save_telemetry_data_post_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param SaveTelemetryDataInput save_telemetry_data_input:
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'save_telemetry_data_input'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_v1_iot_save_telemetry_data_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'save_telemetry_data_input' in local_var_params:
-            body_params = local_var_params['save_telemetry_data_input']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/v1/iot/save-telemetry-data', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def api_v1_iot_timeseries_batch_post(self, **kwargs):  # noqa: E501
-        """批量查询设备指标的时间序列数据，按时间排序 Batch query time-series data of device indicators order by time  # noqa: E501
-
-        批量查询设备多个指标在某个时间段内的时间序列数据，可按时间排序 Batch query time-series data of multiple indicators of a device by time and order by time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_timeseries_batch_post(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param list[TimeseriesInput] timeseries_input:
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[dict(str, list[object])]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.api_v1_iot_timeseries_batch_post_with_http_info(**kwargs)  # noqa: E501
-
-    def api_v1_iot_timeseries_batch_post_with_http_info(self, **kwargs):  # noqa: E501
-        """批量查询设备指标的时间序列数据，按时间排序 Batch query time-series data of device indicators order by time  # noqa: E501
-
-        批量查询设备多个指标在某个时间段内的时间序列数据，可按时间排序 Batch query time-series data of multiple indicators of a device by time and order by time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v1_iot_timeseries_batch_post_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param list[TimeseriesInput] timeseries_input:
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[dict(str, list[object])], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'timeseries_input'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_v1_iot_timeseries_batch_post" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'timeseries_input' in local_var_params:
-            body_params = local_var_params['timeseries_input']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api/v1/iot/timeseries-batch', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[dict(str, list[object])]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def api_v1_iot_timeseries_get(self, device_id, keys, start_ts, end_ts, **kwargs):  # noqa: E501
-        """查询设备指标的时间序列数据，按时间排序 Query time-series data of device indicators order by time  # noqa: E501
+        """查询设备指标在指定时间段内的时间序列数据，可根据排序方式OrderBy按时间排序  # noqa: E501
 
-        查询设备多个指标在某个时间段内的时间序列数据，可按时间排序 Query time-series data of multiple indicators of a device by time and order by time.  # noqa: E501
+        关键词：设备、设备指标、设备指标时间序列数据、时间、排序、查询  使用场景：查询设备多个指标在某个时间段内的时间序列数据，可按时间排序，该数据来自系统接入的实测数据，可用于展示到前端界面  输入：设备、指标、时间区间  输出：指标与时间序列数据的键值对  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v1_iot_timeseries_get(device_id, keys, start_ts, end_ts, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str device_id: 设备ID device id (required)
-        :param list[str] keys: 指标列表 indicators (required)
-        :param str start_ts: 查询开始时间 start time (required)
-        :param str end_ts: 查询结束时间 end time (required)
+        :param str device_id: 设备ID，如：065cd960-67d4-11ee-a501-41ab9ac02e38 (required)
+        :param list[str] keys: 指标列表，如：ceshi_1_shuichang_flow、ceshi_1_shuichang_waterlevel (required)
+        :param datetime start_ts: 查询开始时间 (required)
+        :param datetime end_ts: 查询结束时间 (required)
         :param str order_by: 排序方式，ASC (升序)，DESC (降序) sort order, ASC (ASCENDING) or DESC (DESCENDING);默认是降序DESC
-        :param int interval:
-        :param str agg:
+        :param int interval: 时间间隔，默认是1分钟
+        :param str agg: 用于指定聚合函数，如AVG（平均值）、SUM（总和）、MIN（最小值）、MAX（最大值）等
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -679,22 +339,22 @@ class TelemetryApi(object):
         return self.api_v1_iot_timeseries_get_with_http_info(device_id, keys, start_ts, end_ts, **kwargs)  # noqa: E501
 
     def api_v1_iot_timeseries_get_with_http_info(self, device_id, keys, start_ts, end_ts, **kwargs):  # noqa: E501
-        """查询设备指标的时间序列数据，按时间排序 Query time-series data of device indicators order by time  # noqa: E501
+        """查询设备指标在指定时间段内的时间序列数据，可根据排序方式OrderBy按时间排序  # noqa: E501
 
-        查询设备多个指标在某个时间段内的时间序列数据，可按时间排序 Query time-series data of multiple indicators of a device by time and order by time.  # noqa: E501
+        关键词：设备、设备指标、设备指标时间序列数据、时间、排序、查询  使用场景：查询设备多个指标在某个时间段内的时间序列数据，可按时间排序，该数据来自系统接入的实测数据，可用于展示到前端界面  输入：设备、指标、时间区间  输出：指标与时间序列数据的键值对  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v1_iot_timeseries_get_with_http_info(device_id, keys, start_ts, end_ts, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str device_id: 设备ID device id (required)
-        :param list[str] keys: 指标列表 indicators (required)
-        :param str start_ts: 查询开始时间 start time (required)
-        :param str end_ts: 查询结束时间 end time (required)
+        :param str device_id: 设备ID，如：065cd960-67d4-11ee-a501-41ab9ac02e38 (required)
+        :param list[str] keys: 指标列表，如：ceshi_1_shuichang_flow、ceshi_1_shuichang_waterlevel (required)
+        :param datetime start_ts: 查询开始时间 (required)
+        :param datetime end_ts: 查询结束时间 (required)
         :param str order_by: 排序方式，ASC (升序)，DESC (降序) sort order, ASC (ASCENDING) or DESC (DESCENDING);默认是降序DESC
-        :param int interval:
-        :param str agg:
+        :param int interval: 时间间隔，默认是1分钟
+        :param str agg: 用于指定聚合函数，如AVG（平均值）、SUM（总和）、MIN（最小值）、MAX（最大值）等
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -783,10 +443,10 @@ class TelemetryApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v1/iot/timeseries', 'GET',
@@ -804,17 +464,17 @@ class TelemetryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def api_v2_iot_timeseries_batch_post(self, **kwargs):  # noqa: E501
-        """批量查询多个设备指标的时间序列数据，按时间排序 Batch query time-series data of device indicators order by time  # noqa: E501
+    def api_v3_iot_latest_timeseries_from_db_post(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取最新实测数据,只从数据库中读取，不读缓存数据  # noqa: E501
 
-        批量查询多个设备指标在某个时间段内的时间序列数据，可按时间排序,返回的tspair结构为：[{T,V},{T,V}]. Batch query time-series data of multiple device indicators by time and order by time,return data structure:[{T,V},{T,V}]  # noqa: E501
+        关键词：设备、设备指标、最新、实测数据、获取、查询  使用场景：批量查询多个设备指标最新的实测数据，根据TimeRange控制是否有最新数据的时间范围（分钟），若TimeRange=5则查询距离当前时刻5分钟内的最新实测数据，用于多个设备指标只展示最新实测数据的情景  与接口/api/v3/iot/latest-timeseries优先读取缓存中的数据不同，该接口始终从数据库中读取最新一条实测数据，这些数据的入库时间通常经过了对齐处理，  在接口/api/v1/historical-data/search-latest中会调用该接口获取最新一条实测数据，并返回相同时间的模拟数据  输入：设备编码、指标名称、离当前时刻最近的数据范围  输出：设备编码、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v2_iot_timeseries_batch_post(async_req=True)
+        >>> thread = api.api_v3_iot_latest_timeseries_from_db_post(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param list[TimeseriesInput] timeseries_input:
+        :param list[LatestTimeSeriesInputV3] latest_time_series_input_v3:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -822,24 +482,24 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[TimeseriesBatchOutput]
+        :return: list[LatestTimeSeriesOutputV3]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.api_v2_iot_timeseries_batch_post_with_http_info(**kwargs)  # noqa: E501
+        return self.api_v3_iot_latest_timeseries_from_db_post_with_http_info(**kwargs)  # noqa: E501
 
-    def api_v2_iot_timeseries_batch_post_with_http_info(self, **kwargs):  # noqa: E501
-        """批量查询多个设备指标的时间序列数据，按时间排序 Batch query time-series data of device indicators order by time  # noqa: E501
+    def api_v3_iot_latest_timeseries_from_db_post_with_http_info(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取最新实测数据,只从数据库中读取，不读缓存数据  # noqa: E501
 
-        批量查询多个设备指标在某个时间段内的时间序列数据，可按时间排序,返回的tspair结构为：[{T,V},{T,V}]. Batch query time-series data of multiple device indicators by time and order by time,return data structure:[{T,V},{T,V}]  # noqa: E501
+        关键词：设备、设备指标、最新、实测数据、获取、查询  使用场景：批量查询多个设备指标最新的实测数据，根据TimeRange控制是否有最新数据的时间范围（分钟），若TimeRange=5则查询距离当前时刻5分钟内的最新实测数据，用于多个设备指标只展示最新实测数据的情景  与接口/api/v3/iot/latest-timeseries优先读取缓存中的数据不同，该接口始终从数据库中读取最新一条实测数据，这些数据的入库时间通常经过了对齐处理，  在接口/api/v1/historical-data/search-latest中会调用该接口获取最新一条实测数据，并返回相同时间的模拟数据  输入：设备编码、指标名称、离当前时刻最近的数据范围  输出：设备编码、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_v2_iot_timeseries_batch_post_with_http_info(async_req=True)
+        >>> thread = api.api_v3_iot_latest_timeseries_from_db_post_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param list[TimeseriesInput] timeseries_input:
+        :param list[LatestTimeSeriesInputV3] latest_time_series_input_v3:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -849,7 +509,7 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[TimeseriesBatchOutput], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[LatestTimeSeriesOutputV3], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -857,7 +517,7 @@ class TelemetryApi(object):
         local_var_params = locals()
 
         all_params = [
-            'timeseries_input'
+            'latest_time_series_input_v3'
         ]
         all_params.extend(
             [
@@ -872,7 +532,7 @@ class TelemetryApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_iot_timeseries_batch_post" % key
+                    " to method api_v3_iot_latest_timeseries_from_db_post" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -889,28 +549,142 @@ class TelemetryApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'timeseries_input' in local_var_params:
-            body_params = local_var_params['timeseries_input']
+        if 'latest_time_series_input_v3' in local_var_params:
+            body_params = local_var_params['latest_time_series_input_v3']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/iot/timeseries-batch', 'POST',
+            '/api/v3/iot/latest-timeseries-from-db', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[TimeseriesBatchOutput]',  # noqa: E501
+            response_type='list[LatestTimeSeriesOutputV3]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def api_v3_iot_latest_timeseries_post(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取最新实测数据  # noqa: E501
+
+        关键词：设备、设备指标、最新、实测数据、获取、查询  使用场景：批量查询多个设备指标最新的实测数据，根据TimeRange控制是否有最新数据的时间范围（分钟），若TimeRange=5则查询距离当前时刻5分钟内的最新实测数据，用于多个设备指标只展示最新实测数据的情景  输入：设备编码、指标名称、离当前时刻最近的数据范围  输出：设备编码、指标的时间序列数据  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.api_v3_iot_latest_timeseries_post(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[LatestTimeSeriesInputV3] latest_time_series_input_v3:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[LatestTimeSeriesOutputV3]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.api_v3_iot_latest_timeseries_post_with_http_info(**kwargs)  # noqa: E501
+
+    def api_v3_iot_latest_timeseries_post_with_http_info(self, **kwargs):  # noqa: E501
+        """根据设备编码和指标名获取最新实测数据  # noqa: E501
+
+        关键词：设备、设备指标、最新、实测数据、获取、查询  使用场景：批量查询多个设备指标最新的实测数据，根据TimeRange控制是否有最新数据的时间范围（分钟），若TimeRange=5则查询距离当前时刻5分钟内的最新实测数据，用于多个设备指标只展示最新实测数据的情景  输入：设备编码、指标名称、离当前时刻最近的数据范围  输出：设备编码、指标的时间序列数据  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.api_v3_iot_latest_timeseries_post_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[LatestTimeSeriesInputV3] latest_time_series_input_v3:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[LatestTimeSeriesOutputV3], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'latest_time_series_input_v3'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method api_v3_iot_latest_timeseries_post" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'latest_time_series_input_v3' in local_var_params:
+            body_params = local_var_params['latest_time_series_input_v3']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['text/plain'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v3/iot/latest-timeseries', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[LatestTimeSeriesOutputV3]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -919,8 +693,9 @@ class TelemetryApi(object):
             collection_formats=collection_formats)
 
     def api_v3_iot_save_telemetry_data_batch_post(self, **kwargs):  # noqa: E501
-        """以结构化的数据格式批量保存或更新实测数据 / Save or update measured data in batches in a structured data format  # noqa: E501
+        """以结构化的数据格式通过消息队列批量保存或更新实测数据  # noqa: E501
 
+        关键词：时间戳、设备、设备指标、实测数据、消息队列、更新  使用场景：批量保存或更新多个设备指标实测数据，更新到缓存中并推送到消息队列做数据存储，保存的数据可通过查询接口/api/v3/iot/timeseries-batch查询做进一步数据处理或展示  输入：时间戳、设备编码、指标名称、数值  输出：无  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v3_iot_save_telemetry_data_batch_post(async_req=True)
@@ -935,7 +710,7 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: object
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -943,8 +718,9 @@ class TelemetryApi(object):
         return self.api_v3_iot_save_telemetry_data_batch_post_with_http_info(**kwargs)  # noqa: E501
 
     def api_v3_iot_save_telemetry_data_batch_post_with_http_info(self, **kwargs):  # noqa: E501
-        """以结构化的数据格式批量保存或更新实测数据 / Save or update measured data in batches in a structured data format  # noqa: E501
+        """以结构化的数据格式通过消息队列批量保存或更新实测数据  # noqa: E501
 
+        关键词：时间戳、设备、设备指标、实测数据、消息队列、更新  使用场景：批量保存或更新多个设备指标实测数据，更新到缓存中并推送到消息队列做数据存储，保存的数据可通过查询接口/api/v3/iot/timeseries-batch查询做进一步数据处理或展示  输入：时间戳、设备编码、指标名称、数值  输出：无  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v3_iot_save_telemetry_data_batch_post_with_http_info(async_req=True)
@@ -961,7 +737,7 @@ class TelemetryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1003,16 +779,12 @@ class TelemetryApi(object):
         body_params = None
         if 'save_telemetry_struct_data_batch_input' in local_var_params:
             body_params = local_var_params['save_telemetry_struct_data_batch_input']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/iot/save-telemetry-data-batch', 'POST',
@@ -1022,7 +794,7 @@ class TelemetryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1031,8 +803,9 @@ class TelemetryApi(object):
             collection_formats=collection_formats)
 
     def api_v3_iot_timeseries_batch_post(self, **kwargs):  # noqa: E501
-        """根据指标获取实测时序数据,返回的tspair结构为：T[],V[]. Batch query time-series data of multiple device indicators by time and order by time,return data structure:T[],V[]  # noqa: E501
+        """批量查询多个设备指标的时间序列数据  # noqa: E501
 
+        关键词：设备、设备指标、设备指标时间序列数据、时间、排序、批量查询、抽样  使用场景：批量查询多个设备指标在某个时间段内的时间序列数据，可抽样查询，并按时间排序，默认按照时间从大到小排序；如:sample=minutes,interval=5,表示按照5分钟进行抽样，用于多个设备指标同时展示实测数据的情景  输入：设备、指标、时间区间、抽样类型、抽样频率  输出：多个设备、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v3_iot_timeseries_batch_post(async_req=True)
@@ -1055,8 +828,9 @@ class TelemetryApi(object):
         return self.api_v3_iot_timeseries_batch_post_with_http_info(**kwargs)  # noqa: E501
 
     def api_v3_iot_timeseries_batch_post_with_http_info(self, **kwargs):  # noqa: E501
-        """根据指标获取实测时序数据,返回的tspair结构为：T[],V[]. Batch query time-series data of multiple device indicators by time and order by time,return data structure:T[],V[]  # noqa: E501
+        """批量查询多个设备指标的时间序列数据  # noqa: E501
 
+        关键词：设备、设备指标、设备指标时间序列数据、时间、排序、批量查询、抽样  使用场景：批量查询多个设备指标在某个时间段内的时间序列数据，可抽样查询，并按时间排序，默认按照时间从大到小排序；如:sample=minutes,interval=5,表示按照5分钟进行抽样，用于多个设备指标同时展示实测数据的情景  输入：设备、指标、时间区间、抽样类型、抽样频率  输出：多个设备、指标的时间序列数据  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.api_v3_iot_timeseries_batch_post_with_http_info(async_req=True)
@@ -1117,14 +891,14 @@ class TelemetryApi(object):
             body_params = local_var_params['timeseries_batch_for_v3_input']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
             '/api/v3/iot/timeseries-batch', 'POST',
